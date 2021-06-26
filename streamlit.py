@@ -8,6 +8,7 @@ from add_data import db_execute_fetch
 
 st.set_page_config(page_title="Dashboard", layout="wide")
 
+#Loading data from the database
 def loadData():
     query = "select * from TweetInformation"
     df = db_execute_fetch(query, dbName="tweets", rdf=True)
