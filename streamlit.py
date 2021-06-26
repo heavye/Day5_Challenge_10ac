@@ -90,7 +90,38 @@ st.sidebar.markdown("## Controls")
 st.sidebar.markdown("You can **change** the values to change the *chart*.")
 x = st.sidebar.slider('Slope', min_value=0.01, max_value=0.10, step=0.01)
 y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
+# Define the multipage class to manage the multiple apps in our program 
+class MultiPage: 
+    """Framework for combining multiple streamlit applications."""
 
+    def __init__(self) -> None:
+        """Constructor class to generate a list which will store all our applications as an instance variable."""
+        self.pages = []
+    
+    def add_page(self, title, func) -> None: 
+        """Class Method to Add pages to the project
+        Args:
+            title ([str]): The title of page which we are adding to the list of apps 
+            
+            func: Python function to render this page in Streamlit
+        """
+
+        self.pages.append({
+          
+                "title": title, 
+                "function": func
+            })
+
+    def run(self):
+        # Drodown to select the page to run  
+        page = st.sidebar.selectbox(
+            'App Navigation', 
+            self.pages, 
+            format_func=lambda page: page['title']
+        )
+
+        # run the app function 
+        page['function']()
 st.title("Data Display")
 selectHashTag()
 st.markdown("<p style='padding:10px; background-color:#000000;color:#00ECB9;font-size:16px;border-radius:10px;'>Section Break</p>", unsafe_allow_html=True)
