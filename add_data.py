@@ -211,6 +211,6 @@ if __name__ == "__main__":
     emojiDB(dbName='tweets')
     createTables(dbName='tweets')
 
-    df = pd.read_csv('cleaned_fintech_data.csv')
+    df = pd.read_csv('cleaned_fintech_data.csv').head(100)
 
     insert_to_tweet_table(dbName='tweets', df=df, table_name='TweetInformation')
