@@ -86,6 +86,10 @@ def langPie():
     with colB2:
         st.write(dfLangCount)
 
+st.sidebar.markdown("## Controls")
+st.sidebar.markdown("You can **change** the values to change the *chart*.")
+x = st.sidebar.slider('Slope', min_value=0.01, max_value=0.10, step=0.01)
+y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
 
 st.title("Data Display")
 selectHashTag()
