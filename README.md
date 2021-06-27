@@ -11,9 +11,9 @@ Read data from the tables and display it on streamlit.
 The web app should have two pages or more and selection of the data to be displayed e.g show data belonging from a particular user
 Design different plots that show different analyses of the data.
 
-# Some screen shots of the hosted streamlit
+# Some screen shots of my hosted streamlit
 ## Home Page
-![Homepage - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543030-657fd300-d755-11eb-8abe-77c79761ba39.png)
+![screencapture-localhost-8501-2021-06-27-18_49_54](https://user-images.githubusercontent.com/49339609/123551070-df758380-d778-11eb-8ed2-0f6dcbb5766e.png)
 
 ## Bar Chart
 ![Bar - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543112-bb547b00-d755-11eb-8815-c2f0ae9ec6d8.png)
