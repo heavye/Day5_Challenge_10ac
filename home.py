@@ -4,6 +4,8 @@ import plotly.express as px
 import streamlit as st
 import altair as alt
 import pandas as pd
+from matplotlib.colors import LinearSegmentedColormap
+from PIL import Image
 from wordcloud import WordCloud
 from add_data import db_execute_fetch
 
@@ -33,8 +35,10 @@ def wordCloud():
         tokens = str(text).lower().split()
 
         cleanText += " ".join(tokens) + " "
-
-    wc = WordCloud(width=650, height=450, background_color='white', min_font_size=5).generate(cleanText)
+    mask = np.array(Image.open("mask.jpg"))
+    colors = ["#BF0A30", "#002868", "#111111"]
+    cmap = LinearSegmentedColormap.from_list("mycmap", colors)
+    wc = WordCloud(width=650, height=450, background_color='white', colormap=cmap , mask=mask,  min_font_size=5).generate(cleanText)
     st.title("Tweet Text Word Cloud")
     st.image(wc.to_array())
 
