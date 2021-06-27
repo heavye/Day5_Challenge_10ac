@@ -9,9 +9,11 @@ st.set_page_config(page_title="Dashboard", layout="wide")
 
 import bar
 import hash
+import lang
 PAGES = {
     "Bar Chart ": bar,
-    "Hash Tags": hash
+    "Hash Tags": hash,
+    "Languages" : lang
 }
 st.sidebar.title('Pages')
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
@@ -60,35 +62,9 @@ def wordCloud():
 
 
 
-def langPie():
-    df = loadData()
-    dfLangCount = pd.DataFrame({'Tweet_count': df.groupby(['language'])['clean_text'].count()}).reset_index()
-    dfLangCount["language"] = dfLangCount["language"].astype(str)
-    dfLangCount = dfLangCount.sort_values("Tweet_count", ascending=False)
-    dfLangCount.loc[dfLangCount['Tweet_count'] < 10, 'lang'] = 'Other languages'
-    st.title(" Tweets Language pie chart")
-    fig = px.pie(dfLangCount, values='Tweet_count', names='language', width=500, height=350)
-    fig.update_traces(textposition='inside', textinfo='percent+label')
 
-    colB1, colB2 = st.beta_columns([2.5, 1])
-
-    with colB1:
-        st.plotly_chart(fig)
-    with colB2:
-        st.write(dfLangCount)
-
-# st.sidebar.markdown("## Controls")
-
-            
-# st.sidebar.markdown("You can **change** the values to change the *chart*.")
-# x = st.sidebar.slider('Slope', min_value=0.01, max_value=0.10, step=0.01)
-# y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
-
-# st.title("Data Display")
 
 selectLocAndAuth()
 st.title("Data Visualizations")
 wordCloud()
-with st.beta_expander("Show More Graphs"):
 
-    langPie()
