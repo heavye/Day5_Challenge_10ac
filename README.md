@@ -12,4 +12,15 @@ The web app should have two pages or more and selection of the data to be displa
 Design different plots that show different analyses of the data.
 
 # Some screen shots of the hosted streamlit
-![FireShot Capture 015 - Day 5 · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123526730-7c391200-d6e2-11eb-8dae-32277b7e7cb5.png)
+## Home Page
+![Homepage - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543030-657fd300-d755-11eb-8abe-77c79761ba39.png)
+
+## Bar Chart
+![Bar - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543112-bb547b00-d755-11eb-8815-c2f0ae9ec6d8.png)
+
+## Language 
+![Lang - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543160-eb9c1980-d755-11eb-85fe-0a20f9663b21.png)
+
+## HashTags
+![Hash - Dashboard · Streamlit - localhost](https://user-images.githubusercontent.com/49339609/123543229-18e8c780-d756-11eb-804f-d7bcc5ff7195.png)
+
