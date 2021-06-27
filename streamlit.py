@@ -5,8 +5,19 @@ import altair as alt
 from wordcloud import WordCloud
 import plotly.express as px
 from add_data import db_execute_fetch
-
 st.set_page_config(page_title="Dashboard", layout="wide")
+
+import app1
+import app2
+PAGES = {
+    "App1": app1,
+    "App2": app2
+}
+st.sidebar.title('Pages')
+selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+page = PAGES[selection]
+page.app()
+
 
 #Loading data from the database
 def loadData():
@@ -87,10 +98,13 @@ def langPie():
         st.write(dfLangCount)
 
 st.sidebar.markdown("## Controls")
-st.sidebar.markdown("You can **change** the values to change the *chart*.")
-x = st.sidebar.slider('Slope', min_value=0.01, max_value=0.10, step=0.01)
-y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
-st.title("Data Display")
+
+            
+# st.sidebar.markdown("You can **change** the values to change the *chart*.")
+# x = st.sidebar.slider('Slope', min_value=0.01, max_value=0.10, step=0.01)
+# y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
+
+# st.title("Data Display")
 selectHashTag()
 st.markdown("<p style='padding:10px; background-color:#000000;color:#00ECB9;font-size:16px;border-radius:10px;'>Section Break</p>", unsafe_allow_html=True)
 selectLocAndAuth()
