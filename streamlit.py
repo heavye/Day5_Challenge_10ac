@@ -8,10 +8,10 @@ from add_data import db_execute_fetch
 st.set_page_config(page_title="Dashboard", layout="wide")
 
 import bar
-import app2
+import hash
 PAGES = {
     "Bar Chart ": bar,
-    "App2": app2
+    "Hash Tags": hash
 }
 st.sidebar.title('Pages')
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
@@ -25,12 +25,6 @@ def loadData():
     df = db_execute_fetch(query, dbName="tweets", rdf=True)
     return df
 
-def selectHashTag():
-    df = loadData()
-    hashTags = st.multiselect("choose combaniation of hashtags", list(df['hashtags'].unique()))
-    if hashTags:
-        df = df[np.isin(df, hashTags).any(axis=1)]
-        st.write(df)
 
 def selectLocAndAuth():
     df = loadData()
@@ -83,7 +77,7 @@ def langPie():
     with colB2:
         st.write(dfLangCount)
 
-st.sidebar.markdown("## Controls")
+# st.sidebar.markdown("## Controls")
 
             
 # st.sidebar.markdown("You can **change** the values to change the *chart*.")
@@ -91,8 +85,7 @@ st.sidebar.markdown("## Controls")
 # y = st.sidebar.slider('Noise', min_value=0.01, max_value=0.10, step=0.01)
 
 # st.title("Data Display")
-selectHashTag()
-st.markdown("<p style='padding:10px; background-color:#000000;color:#00ECB9;font-size:16px;border-radius:10px;'>Section Break</p>", unsafe_allow_html=True)
+
 selectLocAndAuth()
 st.title("Data Visualizations")
 wordCloud()
