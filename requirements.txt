@@ -1,3 +1,6 @@
 pandas>=1.1.0
 pip==19.2.3
 textblob==0.15.3
+numpy==1.21.0
+streamlit==0.83.0
+wordcloud 1.8.1

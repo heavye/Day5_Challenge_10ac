@@ -36,9 +36,9 @@ def wordCloud():
 
         cleanText += " ".join(tokens) + " "
     mask = np.array(Image.open("mask.jpg"))
-    colors = ["#BF0A30", "#002868", "#111111"]
+    colors = ["#FF0000", "#002868", "#BA55D3","#FAF0E6","#00FF00","#FF4500","#FFFF00"]
     cmap = LinearSegmentedColormap.from_list("mycmap", colors)
-    wc = WordCloud(width=650, height=450, background_color='white', colormap=cmap , mask=mask,  min_font_size=5).generate(cleanText)
+    wc = WordCloud(width=650, height=450, background_color='black', colormap=cmap , mask=mask,  min_font_size=5).generate(cleanText)
     st.title("Tweet Text Word Cloud")
     st.image(wc.to_array())
 
